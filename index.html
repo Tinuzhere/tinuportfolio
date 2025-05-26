@@ -328,114 +328,89 @@
         }
         
         /* Experience Section */
-        .experience-timeline {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
-            border-radius: 2px;
-        }
-        
-        .experience-item {
-            position: relative;
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
-        }
-        
-        .experience-item:nth-child(1) { animation-delay: 0.1s; }
-        .experience-item:nth-child(2) { animation-delay: 0.2s; }
-        .experience-item:nth-child(3) { animation-delay: 0.3s; }
-        
-        .experience-content {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: calc(50% - 40px);
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .experience-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .experience-item:nth-child(odd) .experience-content {
-            margin-left: auto;
-            margin-right: 40px;
-        }
-        
-        .experience-item:nth-child(even) .experience-content {
-            margin-left: 40px;
-        }
-        
-        .experience-content::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 0;
-            height: 0;
-            border: 15px solid transparent;
-        }
-        
-        .experience-item:nth-child(odd) .experience-content::before {
-            right: -30px;
-            border-left-color: white;
-            transform: translateY(-50%);
-        }
-        
-        .experience-item:nth-child(even) .experience-content::before {
-            left: -30px;
-            border-right-color: white;
-            transform: translateY(-50%);
-        }
-        
-        .experience-date {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            white-space: nowrap;
-            z-index: 2;
-            top: 50%;
-            margin-top: -15px;
-        }
-        
-        .experience-company {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-        
-        .experience-role {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--dark-color);
-            margin-bottom: 10px;
-        }
-        
-        .experience-description {
-            color: #666;
-            line-height: 1.6;
-        }
-        
+       .experience-timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.experience-item {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+.experience-item:nth-child(1) { animation-delay: 0.1s; }
+.experience-item:nth-child(2) { animation-delay: 0.2s; }
+.experience-item:nth-child(3) { animation-delay: 0.3s; }
+
+.experience-content {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.experience-date {
+    align-self: flex-start;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: -10px;
+    box-shadow: 0 2px 8px rgba(58,134,255,0.10);
+}
+
+.experience-company {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.experience-role {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.experience-description {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Remove vertical timeline line and related pseudo-elements */
+.experience-timeline::before,
+.experience-content::before {
+    display: none !important;
+}
+
+/* Responsive: stack for mobile */
+@media (max-width: 768px) {
+    .experience-timeline {
+        gap: 20px;
+    }
+    .experience-content {
+        padding: 18px;
+    }
+    .experience-company {
+        font-size: 1.1rem;
+    }
+    .experience-role {
+        font-size: 0.98rem;
+    }
+}
         /* Projects Section */
         .projects-grid {
             display: grid;
@@ -967,44 +942,44 @@
     
     <!-- Experience Section -->
     <section id="experience" class="container">
-        <div class="section-title">
-            <h2>Professional Experience</h2>
-        </div>
-        <div class="experience-timeline">
-            <div class="experience-item">
+    <div class="section-title">
+        <h2>Professional Experience</h2>
+    </div>
+    <div class="experience-timeline">
+        <div class="experience-item">
+            <div class="experience-content">
                 <div class="experience-date">2025 - Present</div>
-                <div class="experience-content">
-                    <div class="experience-company">EY GDS India LLP</div>
-                    <div class="experience-role">Senior Test Engineer</div>
-                    <div class="experience-description">
-                        Leading quality assurance initiatives and driving test automation strategies while mentoring junior team members and ensuring delivery excellence.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="experience-item">
-                <div class="experience-date">2022 - 2025</div>
-                <div class="experience-content">
-                    <div class="experience-company">Tata Consultancy Services</div>
-                    <div class="experience-role">Systems Engineer</div>
-                    <div class="experience-description">
-                        Executed comprehensive testing strategies for enterprise applications, collaborated with cross-functional teams, and contributed to process improvements in agile environments.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="experience-item">
-                <div class="experience-date">2021 - 2022</div>
-                <div class="experience-content">
-                    <div class="experience-company">DRD Communications And Software Private Limited</div>
-                    <div class="experience-role">Assistant Test Engineer</div>
-                    <div class="experience-description">
-                        Started my testing career focusing on manual testing, test case development, and quality assurance for telecommunications and web applications.
-                    </div>
+                <div class="experience-company">EY GDS India LLP</div>
+                <div class="experience-role">Senior Test Engineer</div>
+                <div class="experience-description">
+                    Leading quality assurance initiatives and driving test automation strategies while mentoring junior team members and ensuring delivery excellence.
                 </div>
             </div>
         </div>
-    </section>
+        
+        <div class="experience-item">
+            <div class="experience-content">
+                <div class="experience-date">2022 - 2025</div>
+                <div class="experience-company">Tata Consultancy Services</div>
+                <div class="experience-role">Systems Engineer</div>
+                <div class="experience-description">
+                    Executed comprehensive testing strategies for enterprise applications, collaborated with cross-functional teams, and contributed to process improvements in agile environments.
+                </div>
+            </div>
+        </div>
+        
+        <div class="experience-item">
+            <div class="experience-content">
+                <div class="experience-date">2021 - 2022</div>
+                <div class="experience-company">DRD Communications And Software Private Limited</div>
+                <div class="experience-role">Assistant Test Engineer</div>
+                <div class="experience-description">
+                    Responsible for designing and executing manual tests, reporting defects, and ensuring software met quality standards.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     
     <!-- Projects Section -->
     <section id="projects" class="container">
@@ -1049,7 +1024,7 @@
                     <div class="project-tags">
                         <span class="project-tag">Cross-browser</span>
                         <span class="project-tag">Responsive Testing</span>
-                        <span class="project-tag">Acceptance Testing</span>
+                        <span class="project-tag">A</span>
                         <span class="project-tag">UI/UX Testing</span>
                     </div>
                 </div>
