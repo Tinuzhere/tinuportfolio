@@ -298,6 +298,115 @@
             left: -15px;
         }
         
+        /* Experience Section */
+        .experience-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .experience-item {
+            position: relative;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .experience-item:nth-child(1) { animation-delay: 0.1s; }
+        .experience-item:nth-child(2) { animation-delay: 0.2s; }
+        .experience-item:nth-child(3) { animation-delay: 0.3s; }
+        
+        .experience-content {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 40px);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .experience-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .experience-item:nth-child(odd) .experience-content {
+            margin-left: auto;
+            margin-right: 40px;
+        }
+        
+        .experience-item:nth-child(even) .experience-content {
+            margin-left: 40px;
+        }
+        
+        .experience-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+        }
+        
+        .experience-item:nth-child(odd) .experience-content::before {
+            right: -30px;
+            border-left-color: white;
+            transform: translateY(-50%);
+        }
+        
+        .experience-item:nth-child(even) .experience-content::before {
+            left: -30px;
+            border-right-color: white;
+            transform: translateY(-50%);
+        }
+        
+        .experience-date {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            z-index: 2;
+            top: 50%;
+            margin-top: -15px;
+        }
+        
+        .experience-company {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .experience-role {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .experience-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
         /* Projects Section */
         .projects-grid {
             display: grid;
@@ -555,6 +664,27 @@
             .contact-links {
                 align-items: center;
             }
+            
+            .experience-timeline::before {
+                left: 20px;
+            }
+            
+            .experience-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+                margin-right: 0 !important;
+            }
+            
+            .experience-content::before {
+                left: -30px !important;
+                border-right-color: white !important;
+                border-left-color: transparent !important;
+            }
+            
+            .experience-date {
+                left: 20px;
+                transform: translateX(-50%);
+            }
         }
         
         @media (max-width: 768px) {
@@ -588,6 +718,7 @@
             <a href="#" class="logo">QA<span style="color: var(--secondary-color);">Pro</span></a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -606,6 +737,8 @@
                         <p>Senior Software Quality Assurance Engineer</p>
                         <div class="social-links">
                             <a href="https://www.linkedin.com/in/tinu-james-a91716211?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/tinuzhere?igsh=dmx1Nm5sazExbjhm" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/share/12MPoCsRnkn/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         </div>
                     </div>
                 </div>
@@ -621,7 +754,7 @@
         <div class="about-content">
             <div class="about-text">
                 <h3>Passionate QA Engineer with 4+ Years of Experience</h3>
-                <p>I’m a detail oriented software testing professional with over 4 years of experience in creating robust test strategies and ensuring high quality software products. While my primary strength lies in manual testing, I also have experience with automated testing frameworks.</p>
+                <p>I'm a detail oriented software testing professional with over 4 years of experience in creating robust test strategies and ensuring high quality software products. While my primary strength lies in manual testing, I also have experience with automated testing frameworks.</p>
                 <p>My approach combines strong technical skills with a deep understanding of user perspectives, ensuring that applications not only meet requirements but also provide exceptional user experiences.</p>
                 <p>My professional journey has taken me through roles at DRD Communications and Software Private Limited, Tata Consultancy Services, and currently EY, where I continue to drive quality and deliver value through thorough testing and collaboration.</p>
                 
@@ -639,6 +772,47 @@
             </div>
             <div class="about-image">
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="About Me">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="container">
+        <div class="section-title">
+            <h2>Professional Experience</h2>
+        </div>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="experience-date">2025 - Present</div>
+                <div class="experience-content">
+                    <div class="experience-company">EY GDS India LLP</div>
+                    <div class="experience-role">Associated Test Lead</div>
+                    <div class="experience-description">
+                        Leading quality assurance initiatives and driving test automation strategies while mentoring junior team members and ensuring delivery excellence.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-date">2022 - 2025</div>
+                <div class="experience-content">
+                    <div class="experience-company">Tata Consultancy Services</div>
+                    <div class="experience-role">Systems Engineer</div>
+                    <div class="experience-description">
+                        Executed comprehensive testing strategies for enterprise applications, collaborated with cross-functional teams, and contributed to process improvements in agile environments.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-date">2021 - 2022</div>
+                <div class="experience-content">
+                    <div class="experience-company">DRD Communications And Software Private Limited</div>
+                    <div class="experience-role">Assistant Test Engineer</div>
+                    <div class="experience-description">
+                        Started my testing career focusing on manual testing, test case development, and quality assurance for telecommunications and web applications.
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -687,130 +861,4 @@
                         <span class="project-tag">Cross-browser</span>
                         <span class="project-tag">Responsive Testing</span>
                         <span class="project-tag">Performance</span>
-                        <span class="project-tag">Accessibility</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Certifications Section -->
-    <section id="certifications" class="container">
-        <div class="section-title">
-            <h2>Certifications</h2>
-        </div>
-        <div class="certifications-list">
-            <div class="certification-item">
-                <div class="certification-icon">
-                    <i class="fas fa-certificate"></i>
-                </div>
-                <div class="certification-details">
-                    <h3>ISTQB Foundational Level</h3>
-                    <p>International Software Testing Qualifications Board | 2025</p>
-                </div>
-            </div>
-            
-            <div class="certification-item">
-                <div class="certification-icon">
-                    <i class="fas fa-certificate"></i>
-                </div>
-                <div class="certification-details">
-                    <h3>GitHub Copilot</h3>
-                    <p>GitHub | 2025-2028</p>
-                </div>
-            </div>
-
-             <div class="certification-item">
-                <div class="certification-icon">
-                    <i class="fas fa-certificate"></i>
-                </div>
-                <div class="certification-details">
-                    <h3>Mastering Functional Testing with Generative AI</h3>
-                    <p>Udemy | 2024</p>
-                </div>
-            </div>
-            
-            <div class="certification-item">
-                <div class="certification-icon">
-                    <i class="fas fa-certificate"></i>
-                </div>
-                <div class="certification-details">
-                    <h3>Azure Devops Boards for Project managers/Analyst/Developers</h3>
-                    <p>Udemy | 2025</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container contact-container">
-            <div class="contact-text">
-                <h2>Let's Connect</h2>
-                <p>I'm always interested in hearing about new testing challenges and opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-            </div>
-            <div class="contact-links">
-                <a href="mailto:tinuzhere@gmail.com" class="contact-link">
-                    <i class="fas fa-envelope"></i>
-                    <span>tinuzhere@gmail.com</span>
-                </a>
-                <a href="tel:+919544199582" class="contact-link">
-                    <i class="fas fa-phone"></i>
-                    <span>+91 9544199582</span>
-                </a>
-                <a href="https://www.linkedin.com/in/tinu-james-a91716211?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="contact-link">
-                    <i class="fab fa-linkedin-in"></i>
-                    <span>linkedin.com/in/tinu-james</span>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Tinu James. All rights reserved.</p>
-        </div>
-    </footer>
-    
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Animation on scroll
-        const animateOnScroll = function() {
-            const elements = document.querySelectorAll('.project-card, .certification-item, .about-content');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementPosition < windowHeight - 100) {
-                    element.style.animationPlayState = 'running';
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-    </script>
-</body>
-</html>
+                        <span class="project
